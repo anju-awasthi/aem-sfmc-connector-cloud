@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:primaryType="nt:unstructured"
+        jcr:title="SFMC Upload Parameters"
+        sling:resourceType="acs-commons/components/utilities/genericlist">
+        <list jcr:primaryType="nt:unstructured">
+        	<item0
+                jcr:primaryType="nt:unstructured"
+                jcr:title="/content/dam/aem-sfmc-connector"
+                value="sfmcAssetsDamPath"/>
+            <item01
+                jcr:primaryType="nt:unstructured"
+                jcr:title="isSyncedToSFMC"
+                value="propertyNameForSFMCAsset"/>
+            <item02
+                jcr:primaryType="nt:unstructured"
+                jcr:title="/content/dam/aem-sfmc-connector/assetTypes.json"
+                value="sfmcAssetTypeJsonPath"/>
+             <item03
+                jcr:primaryType="nt:unstructured"
+                jcr:title="5"
+                value="sfmcSyncTime"/>
+        </list>
+    </jcr:content>
+</jcr:root>

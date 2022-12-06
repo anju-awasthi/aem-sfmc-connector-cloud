@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2020-07-17T06:08:23.602+05:30"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/aem-sfmc-connector/settings/wcm/templates/sfmc-email-template"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Training Newsletters"
+        sling:resourceType="aem-sfmc-connector/components/page/campaign_newsletterpage"
+        sfmcFolderId="{Long}607241">
+        <par
+            jcr:lastModified="{Date}2020-07-13T15:25:38.726+05:30"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aem-sfmc-connector/components/content/parsys"/>
+    </jcr:content>
+    <aem-demo-0717/>
+    <aem-demo-0718/>
+    <aem-demo-0719/>
+</jcr:root>

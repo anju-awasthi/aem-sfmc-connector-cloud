@@ -1,0 +1,44 @@
+<!--/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright 2019 Adobe
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
+<template data-sly-template.simple="${ @ container}">
+    <sly data-sly-test="${wcmmode.edit}" data-sly-use.allowed="com.day.cq.wcm.foundation.AllowedComponentList"></sly>
+    <div data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+         id="aem-sfmc" marginwidth="0" marginheight="0" topmargin="0" leftmargin="0" offset="0" style="margin: 0; padding: 0; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; background-color: #353535;"
+         class="cmp-container${wcmmode.edit ? ' {0}': '' @ format=[allowed.cssClass]}"
+         style="${container.backgroundStyle @ context='styleString'}">
+		    <table id="sfmc-body-table" width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; height: 100%; width: 100%; margin: 0; padding: 0; background-color: #353535;">
+		        <tr>
+		            <td align="center" valign="top" id="ac-body-cell" style="padding: 30px;">
+		                <table id="sfmc-content-table" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;width: 600px; min-height: 30.0rem; background-color: #F4F4F4;">
+		                    <tr>
+		                        <td class="sfmc-content-cell" valign="top" style="padding: 0 20px; text-align: left; font-family: sans-serif; font-size: 13px; color: #505050; line-height: 170%;">
+         
+							        <sly data-sly-test.isAllowedApplicable="${allowed.isApplicable}"
+							             data-sly-test="${isAllowedApplicable}"
+							             data-sly-use.allowedTemplate="allowedcomponents.html"
+							             data-sly-call="${allowedTemplate.allowedcomponents @ title=allowed.title, components=allowed.components}"></sly>
+							        <sly data-sly-test="${!isAllowedApplicable}"
+							             data-sly-repeat="${resource.listChildren}" data-sly-resource="${item.path @ decoration=true}"></sly>
+							        <sly data-sly-test="${!isAllowedApplicable && !wcmmode.disabled}"
+							             data-sly-resource="${resource.path @ resourceType='aem-sfmc-connector/components/master/container/v1/container/new', appendPath='/*', decorationTagName='div', cssClassName='new section'}" />
+   								</td>
+                            </tr>                 
+                		</table>
+            		</td>
+       		 </tr>
+    		</table>
+    </div>
+</template>

@@ -1,0 +1,31 @@
+ <sly data-sly-use.linkModel="com.aem.sfmc.connector.core.models.LinkModel">
+<a
+    data-sly-use.image="image.js"
+    data-sly-unwrap="${!linkModel.link}"
+    href="${linkModel.link}">
+    <img
+        src="${linkModel.fileReference}"
+        alt="${image.alt}"
+        title="${image.title}"
+        width="${image.width}"
+        height="${image.height}"
+        class="${image.cssClass}"
+        border="0"
+        style="display: block; border: none; line-height: 100%; outline: none; text-decoration: none;"
+        usemap="${image.imageMaps.hash}"
+        data-emptytext="Image"/>
+       
+</a>
+</sly>
+<small data-sly-test="${properties.jcr:description}">${properties.jcr:description}</small>
+<map
+    data-sly-list="${image.imageMaps.maps}"
+    name="${image.imageMaps.name}">
+    <area
+        shape="${item.type}"
+        coords="${item.coords}"
+        href="${item.href}"
+        target="${item.target}"
+        alt="${item.text || ' '}" 
+        title="${item.title}"/>
+</map>

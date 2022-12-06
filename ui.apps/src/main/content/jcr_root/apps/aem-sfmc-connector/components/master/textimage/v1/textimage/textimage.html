@@ -1,0 +1,18 @@
+<div data-sly-use.textImage="textimage.js"
+     data-sly-use.emptyRenderer="emptytextimage.html"
+     data-sly-call="${emptyRenderer.emptyTextImageTemplate @ textImage=textImage}" data-sly-unwrap></div>
+<sly data-sly-test.mode="${!wcmmode.disabled}">
+<div data-sly-test="${textImage.hasContent}"
+    data-sly-resource="${'image' @ resourceType='aem-sfmc-connector/components/content/image'}" data-sly-unwrap></div>
+</sly>
+<sly data-sly-test.mode="${!mode}">
+	<div data-sly-test="${textImage.hasContent}"
+   	 data-sly-resource="${'image' @ resourceType='aem-sfmc-connector/components/content/image', wcmmode='disabled'}" data-sly-unwrap></div>
+</sly>
+<sly data-sly-test="${properties.text}">${properties.text @context='html'}</sly>
+<div data-sly-test="${!wcmmode.disabled && !textImage.isTouch}" data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}" data-sly-unwrap>
+	<meta data-sly-call="${clientLib.all @ categories='cq.personalization'}" data-sly-unwrap></meta>
+	<script type="text/javascript">
+		CQ.personalization.variables.Variables.applyToEditComponent("${resource.path @ context='scriptString'}");
+	</script>
+</div>

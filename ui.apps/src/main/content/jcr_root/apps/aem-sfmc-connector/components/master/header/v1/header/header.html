@@ -1,0 +1,7 @@
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+   data-sly-call="${templates.placeholder @ isEmpty = !properties.linkText}"></sly>
+   
+<sly data-sly-test="${properties.linkText}">
+	  ${properties.linkPrefix}  <a x-cq-linkchecker="skip"  href="%%view_email_url%%">${properties.linkText}</a>  ${properties.linkSuffix}
+</sly>
+<sly data-sly-test="${properties.text}">${properties.text @context='html'}</sly>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    jcr:primaryType="cq:Page">
+    <rep:policy/>
+    <aem-sfmc-connector jcr:primaryType="nt:unstructured">
+        	<components jcr:primaryType="nt:unstructured">
+        		<page jcr:primaryType="nt:unstructured">
+	                <policy
+	                    jcr:description="Includes the required client libraries."
+	                    jcr:primaryType="nt:unstructured"
+	                    jcr:title="AEM SFMC Page"
+	                    sling:resourceType="wcm/core/components/policy/policy">
+	                    <jcr:content jcr:primaryType="nt:unstructured"/>
+	                </policy>
+            	</page>
+            	<content jcr:primaryType="nt:unstructured">
+	                <container jcr:primaryType="nt:unstructured">
+	                    <policy_1595907207108
+	                        jcr:description="This is for Experience Fragment -SFMC Connector"
+	                        jcr:lastModified="{Date}2020-08-03T03:35:51.472+05:30"
+	                        jcr:lastModifiedBy="admin"
+	                        jcr:primaryType="nt:unstructured"
+	                        jcr:title="SFMC XF"
+	                        sling:resourceType="wcm/core/components/policy/policy"
+	                        components="group:AEM SFMC Connector">
+	                        <jcr:content jcr:primaryType="nt:unstructured"/>
+	                        <cq:authoring jcr:primaryType="nt:unstructured">
+	                            <assetToComponentMapping jcr:primaryType="nt:unstructured"/>
+	                        </cq:authoring>
+	                    </policy_1595907207108>
+	                </container>
+	                <parsys jcr:primaryType="nt:unstructured">
+	                    <policy_1596405782657
+	                        jcr:lastModified="{Date}2020-08-03T03:33:58.522+05:30"
+	                        jcr:lastModifiedBy="admin"
+	                        jcr:primaryType="nt:unstructured"
+	                        jcr:title="SFMC - Components"
+	                        sling:resourceType="wcm/core/components/policy/policy"
+	                        components="group:AEM SFMC Connector">
+	                        <jcr:content jcr:primaryType="nt:unstructured"/>
+	                        <section jcr:primaryType="nt:unstructured"/>
+	                    </policy_1596405782657>
+	                </parsys>
+            	</content>
+        	</components>
+    </aem-sfmc-connector>
+</jcr:root>

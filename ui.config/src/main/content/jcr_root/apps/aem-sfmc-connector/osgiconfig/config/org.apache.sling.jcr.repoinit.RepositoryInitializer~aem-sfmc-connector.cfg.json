@@ -1,0 +1,11 @@
+{
+    "scripts": [
+        "create path (sling:OrderedFolder) /content/dam/aem-sfmc-connector",
+        "create path (nt:unstructured) /content/dam/aem-sfmc-connector/jcr:content",
+        "set properties on /content/dam/aem-sfmc-connector/jcr:content",
+        "set cq:conf{String} to /conf/aem-sfmc-connector",
+        "set jcr:title{String} to \"AEM SFMC Connector\"",
+        "end"
+
+    ]
+}

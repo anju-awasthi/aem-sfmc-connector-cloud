@@ -1,0 +1,7 @@
+<div data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+     data-sly-test.text="${properties.text}"
+     class="cmp-text">
+    <p class="cmp-text__paragraph"
+       data-sly-unwrap="${properties.textIsRich}">${properties.text @ context = properties.textIsRich ? 'html' : 'text'}</p>
+</div>
+<sly data-sly-call="${templates.placeholder @ isEmpty = !properties.text, classAppend='cmp-text'}"></sly>

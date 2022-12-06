@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="sling:Folder"
+    jcr:title="AEM SFMC Connector">
+
+<servlets jcr:primaryType="nt:unstructured">
+	<emailSync
+       jcr:primaryType="nt:unstructured"
+       sling:resourceType="services/sfmc/emailSync"/>
+</servlets>    
+    
+</jcr:root>

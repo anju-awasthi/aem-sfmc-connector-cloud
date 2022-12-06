@@ -1,0 +1,3 @@
+#base=js
+sfmc-connector-service.js
+multifieldpanel.js

@@ -1,0 +1,13 @@
+<sly data-sly-test.bgColor="${properties.bgColor ? properties.bgColor : '#eee'}"></sly>
+<sly data-sly-test.fontColor="${properties.fontColor ? properties.fontColor : '#000'}"></sly>
+	<p style=" background:${bgColor @context='styleToken'}; padding: 10px; text-align: center !important; border-radius: 20px; cursor: pointer; ">
+	<sly data-sly-use.linkModel="com.aem.sfmc.connector.core.models.LinkModel">
+		<a  style="text-decoration:none; color:${fontColor @context='styleToken'}; font-weight:bold;" href="${linkModel.link}">
+			${properties.title}
+		</a>
+	</sly>
+	</p>
+</sly>
+
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+   data-sly-call="${templates.placeholder @ isEmpty = !properties.title}"></sly>

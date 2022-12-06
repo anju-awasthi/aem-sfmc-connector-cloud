@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:vlt="http://www.day.com/jcr/vault/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[vlt:FullCoverage]"
+    jcr:primaryType="sling:OrderedFolder"
+    sling:resourceType="cq/gui/components/authoring/editorpanel"
+    default="{Boolean}true"
+    id="Content">
+    <header
+        jcr:primaryType="nt:unstructured"
+        class="editor-GlobalBar js-editor-PanelHeader">
+        <items jcr:primaryType="nt:unstructured">
+            <headerbar
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cq/gui/components/authoring/headerbar"
+                class="header-main">
+                <items jcr:primaryType="nt:unstructured">
+                    <pageinfopopover
+                        granite:class="pageinfo"
+                        granite:id="pageinfo-popover"
+                        granite:title="Page Information"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/popover">
+                        <items jcr:primaryType="nt:unstructured">
+                            <list
+                                granite:id="pageinfo-data"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/pageinfo/list">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <status
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="cq/gui/components/authoring/pageinfo/status"/>
+                                    <properties
+                                        granite:title="Open Properties"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="cq/gui/components/authoring/pageinfo/properties"
+                                        text="Open Properties">
+                                        <granite:rendercondition
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/gui/components/renderconditions/canmodify"
+                                            path="${requestPathInfo.suffix}"/>
+                                    </properties>
+                                    <rollout
+                                        granite:id="rolloutBtn"
+                                        granite:title="Rollout Page"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                                        text="Rollout Page">
+                                        <granite:rendercondition
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="wcm/msm/components/touch-ui/renderconditions/isblueprint"
+                                            path="${requestPathInfo.suffix}"/>
+                                    </rollout>
+                                    <workflow
+                                        granite:class="cq-author-start-workflow start-workflow-activator js-editor-WorkflowStart-activator"
+                                        granite:title="Start Workflow"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                                        text="Start Workflow">
+                                        <granite:data
+                                            jcr:primaryType="nt:unstructured"
+                                            path="${requestPathInfo.suffix}"/>
+                                        <granite:rendercondition
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/gui/components/renderconditions/canwriteworkflow"/>
+                                    </workflow>
+                                    <lock
+                                        granite:class="cq-author-lock-page"
+                                        granite:title="Lock Page"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                                        text="Lock Page">
+                                        <granite:rendercondition
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/renderconditions/and">
+                                            <not
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/renderconditions/not">
+                                                <islocked
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/renderconditions/islocked"
+                                                    path="${requestPathInfo.suffix}"/>
+                                            </not>
+                                            <canmodify
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/renderconditions/canmodify"
+                                                path="${requestPathInfo.suffix}"/>
+                                        </granite:rendercondition>
+                                    </lock>
+                                    <unlock
+                                        granite:class="cq-author-unlock-page"
+                                        granite:title="Unlock Page"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                                        text="Unlock Page">
+                                        <granite:rendercondition
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/renderconditions/and">
+                                            <islocked
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/renderconditions/islocked"
+                                                path="${requestPathInfo.suffix}"/>
+                                            <canmodify
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/renderconditions/canmodify"
+                                                path="${requestPathInfo.suffix}"/>
+                                        </granite:rendercondition>
+                                    </unlock>
+                                    <publish-social
+                                        granite:class="cq-authoring-actions-social-post"
+                                        granite:title="Post to Social Media"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                                        href=""
+                                        target=""
+                                        text="Social Post">
+                                        <granite:data
+                                            jcr:primaryType="nt:unstructured"
+                                            path="${requestPathInfo.suffix}"
+                                            url="${granite:url(&quot;/libs/cq/experience-fragments/content/experience-fragments/previewvariation.html&quot;)}${requestPathInfo.suffix}"/>
+                                        <granite:rendercondition
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/experience-fragments/editor/components/renderconditions/issocialvariation"
+                                            path="${requestPathInfo.suffix}"/>
+                                    </publish-social>
+                                    <publish
+                                        granite:class="cq-authoring-actions-quickpublish-activator"
+                                        granite:title="Publish Page"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                                        text="Publish Page">
+                                        <granite:data
+                                            jcr:primaryType="nt:unstructured"
+                                            edit="{Boolean}true"
+                                            later="{Boolean}false"
+                                            path="${requestPathInfo.suffix}"
+                                            references-url="${granite:url(&quot;/libs/wcm/core/content/reference.json&quot;)}"
+                                            replication-url="${granite:url(&quot;/bin/replicate.json&quot;)}"
+                                            url="${granite:url(&quot;/libs/wcm/core/content/sites/publishpagewizard.html&quot;)}"/>
+                                        <granite:rendercondition
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/renderconditions/and">
+                                            <canreplicate
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/renderconditions/canreplicate"
+                                                path="${requestPathInfo.suffix}"/>
+                                            <not
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/renderconditions/not">
+                                                <islaunchresource
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/renderconditions/islaunchresource"
+                                                    path="${requestPathInfo.suffix}"/>
+                                                <islocked
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/renderconditions/islocked"
+                                                    path="${requestPathInfo.suffix}"/>
+                                            </not>
+                                        </granite:rendercondition>
+                                    </publish>
+                                    <publishtosfmc
+                                        granite:class="pageinfo-publishtosfmc"
+                                        granite:title="Publish to SFMC"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                                        text="Publish to SFMC">
+                                        <granite:rendercondition
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/renderconditions/and">
+                                            <canreplicate
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/renderconditions/canreplicate"
+                                                path="${requestPathInfo.suffix}"/>
+                                            <isSFMCTemplate
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/renderconditions/isSFMCTemplate"
+                                                path="${requestPathInfo.suffix}"/>
+                                        </granite:rendercondition>
+                                    </publishtosfmc>
+                                    <requestpublish
+                                        granite:class="cq-authoring-actions-quickpublish-activator"
+                                        granite:title="Request Publication"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                                        text="Request Publication">
+                                        <granite:data
+                                            jcr:primaryType="nt:unstructured"
+                                            edit="{Boolean}true"
+                                            later="{Boolean}true"
+                                            path="${requestPathInfo.suffix}"
+                                            references-url="${granite:url(&quot;/libs/wcm/core/content/reference.json&quot;)}"
+                                            replication-url="${granite:url(&quot;/bin/replicate.json&quot;)}"
+                                            url="${granite:url(&quot;/libs/wcm/core/content/sites/publishpagewizard.html&quot;)}"/>
+                                        <granite:rendercondition
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/renderconditions/and">
+                                            <not
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/renderconditions/not">
+                                                <canreplicate
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/renderconditions/canreplicate"
+                                                    path="${requestPathInfo.suffix}"/>
+                                                <islaunchresource
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/renderconditions/islaunchresource"
+                                                    path="${requestPathInfo.suffix}"/>
+                                            </not>
+                                            <workflowconditions
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/pageinfo/renderconditions/replicate/workflowconditions"
+                                                model="activation"
+                                                path="${requestPathInfo.suffix}"/>
+                                        </granite:rendercondition>
+                                    </requestpublish>
+                                    <unpublish
+                                        granite:class="foundation-toggleable-control pageinfo-unpublish-activator"
+                                        granite:title="Unpublish Page"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                                        text="Unpublish Page">
+                                        <granite:data
+                                            jcr:primaryType="nt:unstructured"
+                                            foundation-toggleable-control-target=".pageinfo-unpublish-confirm"
+                                            path="${requestPathInfo.suffix}"/>
+                                        <granite:rendercondition
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/renderconditions/and">
+                                            <canreplicate
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/renderconditions/canreplicate"
+                                                path="${requestPathInfo.suffix}"/>
+                                            <not
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/renderconditions/not">
+                                                <islaunchresource
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/renderconditions/islaunchresource"
+                                                    path="${requestPathInfo.suffix}"/>
+                                                <islocked
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/renderconditions/islocked"
+                                                    path="${requestPathInfo.suffix}"/>
+                                            </not>
+                                        </granite:rendercondition>
+                                    </unpublish>
+                                    <requestunpublish
+                                        granite:class="foundation-toggleable-control pageinfo-unpublish-activator"
+                                        granite:title="Request Unpublication"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                                        text="Request Unpublication">
+                                        <granite:data
+                                            jcr:primaryType="nt:unstructured"
+                                            foundation-toggleable-control-target=".pageinfo-requestunpublish-confirm"
+                                            path="${requestPathInfo.suffix}"/>
+                                        <granite:rendercondition
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/renderconditions/and">
+                                            <not
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/renderconditions/not">
+                                                <canreplicate
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/renderconditions/canreplicate"
+                                                    path="${requestPathInfo.suffix}"/>
+                                                <islaunchresource
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/renderconditions/islaunchresource"
+                                                    path="${requestPathInfo.suffix}"/>
+                                            </not>
+                                            <workflowconditions
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/pageinfo/renderconditions/replicate/workflowconditions"
+                                                model="deactivation"
+                                                path="${requestPathInfo.suffix}"/>
+                                        </granite:rendercondition>
+                                    </requestunpublish>
+                                    <export-to-target
+                                        granite:class="pageinfo-targetexport-activator"
+                                        granite:title="Export to Adobe Target"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                                        text="Export to Adobe Target">
+                                        <granite:data
+                                            jcr:primaryType="nt:unstructured"
+                                            path="${requestPathInfo.suffix}"
+                                            url="${granite:url(&quot;/libs/cq/experience-fragments/content/commons/targetexporter.html&quot;)}"/>
+                                        <granite:rendercondition
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/renderconditions/not">
+                                            <socialvariation
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/experience-fragments/editor/components/renderconditions/issocialvariation"
+                                                path="${requestPathInfo.suffix}"/>
+                                            <exported
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/experience-fragments/editor/components/renderconditions/targetoffer"
+                                                path="${requestPathInfo.suffix}"/>
+                                        </granite:rendercondition>
+                                    </export-to-target>
+                                    <update-in-target
+                                        granite:class="pageinfo-targetexport-activator"
+                                        granite:title="Update in Adobe Target"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                                        text="Update in Adobe Target">
+                                        <granite:data
+                                            jcr:primaryType="nt:unstructured"
+                                            path="${requestPathInfo.suffix}"
+                                            url="${granite:url(&quot;/libs/cq/experience-fragments/content/commons/targetexporter.html&quot;)}"/>
+                                        <granite:rendercondition
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/renderconditions/and">
+                                            <exported
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/experience-fragments/editor/components/renderconditions/targetoffer"
+                                                path="${requestPathInfo.suffix}"/>
+                                            <not
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/renderconditions/not">
+                                                <socialvariation
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/experience-fragments/editor/components/renderconditions/issocialvariation"
+                                                    path="${requestPathInfo.suffix}"/>
+                                            </not>
+                                        </granite:rendercondition>
+                                    </update-in-target>
+                                    <delete-in-target
+                                        granite:class="pageinfo-targetexport-delete"
+                                        granite:title="Delete in Adobe Target"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                                        text="Delete in Adobe Target">
+                                        <granite:data
+                                            jcr:primaryType="nt:unstructured"
+                                            path="${requestPathInfo.suffix}"
+                                            url="${granite:url(&quot;/libs/cq/experience-fragments/content/commons/targetexporter.html&quot;)}"/>
+                                        <granite:rendercondition
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/renderconditions/and">
+                                            <exported
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/experience-fragments/editor/components/renderconditions/targetoffer"
+                                                path="${requestPathInfo.suffix}"/>
+                                            <not
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/renderconditions/not">
+                                                <socialvariation
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/experience-fragments/editor/components/renderconditions/issocialvariation"
+                                                    path="${requestPathInfo.suffix}"/>
+                                            </not>
+                                        </granite:rendercondition>
+                                    </delete-in-target>
+                                    <promotelaunch
+                                        granite:title="Promote Launch"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="cq/gui/components/authoring/pageinfo/promotelaunch"
+                                        text="Promote Launch">
+                                        <granite:rendercondition
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/gui/components/renderconditions/islaunchresource"
+                                            path="${requestPathInfo.suffix}"/>
+                                    </promotelaunch>
+                                    <analytics
+                                        granite:class="open-contentinsight"
+                                        granite:title="Open Analytics &amp; Recommendations"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                                        text="Open Analytics &amp; Recommendations">
+                                        <granite:rendercondition
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/gui/components/renderconditions/hasanalytics"
+                                            path="${requestPathInfo.suffix}"/>
+                                    </analytics>
+                                    <edittemplate
+                                        granite:class="pageinfo-edittemplate"
+                                        granite:title="Edit Template"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                                        text="Edit Template">
+                                        <granite:rendercondition
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/gui/components/renderconditions/canedittemplate"
+                                            path="${requestPathInfo.suffix}"/>
+                                    </edittemplate>
+                                    <viewaspublished
+                                        granite:class="pageinfo-viewaspublished"
+                                        granite:title="View as Published"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                                        text="View as Published"/>
+                                    <viewinadmin
+                                        granite:class="pageinfo-adminview"
+                                        granite:title="View in Admin"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                                        text="View in Admin">
+                                        <granite:data
+                                            jcr:primaryType="nt:unstructured"
+                                            adminurl="/aem/experience-fragments.html"
+                                            path="${granite:relativeParent(requestPathInfo.suffix, 1)}"/>
+                                        <granite:rendercondition
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/renderconditions/not">
+                                            <islaunchresource
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/renderconditions/islaunchresource"
+                                                path="${granite:relativeParent(requestPathInfo.suffix, 1)}"/>
+                                        </granite:rendercondition>
+                                    </viewinadmin>
+                                    <classicui
+                                        granite:class="classicui-switcher"
+                                        granite:hidden="{Boolean}true"
+                                        granite:title="Open in Classic UI"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                                        text="Open in Classic UI"/>
+                                    <uploadzip
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="wcm/designimporter/components/touch-ui/uploadbutton"
+                                        accept="application/zip,application/x-zip-compressed"
+                                        buttonClass="endor-List-item endor-List-item--interactive coral-MinimalButton js-editor-PageInfo-closePopover editor-PageInfo-action"
+                                        class="cq-designimporter-actions-upload"
+                                        text="Upload Zip">
+                                        <granite:rendercondition
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/renderconditions/and">
+                                            <isimporterpage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="wcm/designimporter/components/touch-ui/renderconditions/isimporterpage"
+                                                path="${requestPathInfo.suffix}"/>
+                                            <not
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/renderconditions/not">
+                                                <hascanvas
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="wcm/designimporter/components/touch-ui/renderconditions/hascanvas"
+                                                    path="${requestPathInfo.suffix}"/>
+                                            </not>
+                                        </granite:rendercondition>
+                                    </uploadzip>
+                                    <cleardesign
+                                        granite:class="cq-designimporter-actions-clear"
+                                        granite:title="Clear Design"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                                        text="Clear Design">
+                                        <granite:rendercondition
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/renderconditions/and">
+                                            <isimporterpage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="wcm/designimporter/components/touch-ui/renderconditions/isimporterpage"
+                                                path="${requestPathInfo.suffix}"/>
+                                            <hascanvas
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="wcm/designimporter/components/touch-ui/renderconditions/hascanvas"
+                                                path="${requestPathInfo.suffix}"/>
+                                        </granite:rendercondition>
+                                    </cleardesign>
+                                    <downloaddesign
+                                        granite:class="cq-designimporter-actions-download"
+                                        granite:title="Download Imported Zip"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                                        text="Download Imported Zip">
+                                        <granite:rendercondition
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/renderconditions/and">
+                                            <isimporterpage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="wcm/designimporter/components/touch-ui/renderconditions/isimporterpage"
+                                                path="${requestPathInfo.suffix}"/>
+                                            <hascanvas
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="wcm/designimporter/components/touch-ui/renderconditions/hascanvas"
+                                                path="${requestPathInfo.suffix}"/>
+                                        </granite:rendercondition>
+                                    </downloaddesign>
+                                    <help
+                                        granite:class="editor-shell-onboarding-trigger"
+                                        granite:title="Help"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                                        text="Help"/>
+                                </items>
+                            </list>
+                        </items>
+                    </pageinfopopover>
+                </items>
+            </headerbar>
+        </items>
+    </header>
+</jcr:root>

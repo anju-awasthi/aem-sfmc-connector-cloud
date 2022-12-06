@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2012-01-10T16:53:07.216+01:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/libs/cq/cloudserviceconfigs/templates/servicepage"
+        jcr:description="Adobe SFMC Connector"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Salesforce Marketing Cloud"
+        sling:resourceType="cq/cloudserviceconfigs/components/servicepage"
+        allowMultiple="{Boolean}true"
+        description="SMFC's powerful marketing automation software helps marketers master the art &amp; science of digital marketing to engage customers and prospects."
+        descriptionExtended=""
+        inclusionRank="{Long}202"
+        ranking="10"
+        serviceUrl="https://mc.s7.exacttarget.com/cloud/"
+        thumbnailPath="/apps/aem-sfmc-connector/templates/configpage/thumbnail.png"/>
+</jcr:root>

@@ -1,0 +1,17 @@
+From: noreply@anthem.com
+Subject: SFMC Assets Upload Report
+
+
+Hello,
+
+Below is the status on SFMC assets upload
+
+${status}
+
+-------------------------------------------------------------------------------------
+
+From,
+Adobe Team
+
+-------------------------------------------------------------------------------------
+This is an automatically generated message. Please do not reply.

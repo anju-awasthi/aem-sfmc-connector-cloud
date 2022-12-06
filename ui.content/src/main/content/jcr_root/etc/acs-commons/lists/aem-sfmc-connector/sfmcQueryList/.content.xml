@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:primaryType="nt:unstructured"
+        jcr:title="SFMC Query Parameter List"
+        sling:resourceType="acs-commons/components/utilities/genericlist">
+        <list jcr:primaryType="nt:unstructured">
+         <item0
+                jcr:primaryType="nt:unstructured"
+                jcr:title="dam:Asset"
+                value="type"/>
+          <item01
+                jcr:primaryType="nt:unstructured"
+                jcr:title="jcr:content/jcr:lastModified"
+                value="orderby"/>
+         <item02
+                jcr:primaryType="nt:unstructured"
+                jcr:title="desc"
+                value="orderby.sort"/>
+  		 <item03
+                jcr:primaryType="nt:unstructured"
+                jcr:title="full"
+                value="p.hits"/>   
+    	 <item04
+                jcr:primaryType="nt:unstructured"
+                jcr:title="true"
+                value="p.guessTotal"/>    
+         <item05
+                jcr:primaryType="nt:unstructured"
+                jcr:title="-1"
+                value="p.limit"/>  
+         <item06
+                jcr:primaryType="nt:unstructured"
+                jcr:title="/content/dam"
+                value="path"/>    
+         <item07
+                jcr:primaryType="nt:unstructured"
+                jcr:title="jcr:created"
+                value="relativedaterange.property"/>
+      	 <item08
+                jcr:primaryType="nt:unstructured"
+                jcr:title="-24h"
+                value="relativedaterange.lowerBound"/>              
+                     
+         
+        </list>
+    </jcr:content>
+</jcr:root>

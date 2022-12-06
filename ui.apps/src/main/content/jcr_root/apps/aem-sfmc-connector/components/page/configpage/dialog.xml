@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="500"
+    width="750"
+    xtype="dialog">
+    <items
+        jcr:primaryType="nt:unstructured"
+        activeTab="0"
+        helpPath="en/cq/current/wcm/default_components.html#Image"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <general
+                jcr:primaryType="nt:unstructured"
+                title="SFMC Settings"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <clientId
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldLabel="Client Id"
+                        id="sfmc-client-id"
+                        name="./clientId"
+                        xtype="textfield">
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            change="function(comp) {CQ.cloudservices.getEditOk().disable();}"
+                            invalid="function(cmp) { CQ.Ext.getCmp('sfmc-connect').disable(); }"
+                            valid="function(cmp){ var pw = CQ.Ext.getCmp('sfmc-client-secret'); var acc = CQ.Ext.getCmp('sfmc-account-id'); var authurl = CQ.Ext.getCmp('sfmc-auth-url'); if (cmp.isValid() &amp;&amp; pw.isValid() &amp;&amp; acc.isValid() &amp;&amp; authurl.isValid()) { CQ.Ext.getCmp('sfmc-connect').enable(); } }"/>
+                    </clientId>
+                    <clientSecret
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldLabel="Client Secret"
+                        id="sfmc-client-secret"
+                        name="./clientSecret"
+                        xtype="password">
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            change="function(comp) {CQ.cloudservices.getEditOk().disable();}"
+                            invalid="function(cmp) { CQ.Ext.getCmp('sfmc-connect').disable(); }"
+                            valid="function(cmp){ var name = CQ.Ext.getCmp('sfmc-client-id'); var acc = CQ.Ext.getCmp('sfmc-account-id'); var authurl = CQ.Ext.getCmp('sfmc-auth-url'); if (name.isValid() &amp;&amp; cmp.isValid() &amp;&amp; acc.isValid() &amp;&amp; authurl.isValid()) { CQ.Ext.getCmp('sfmc-connect').enable(); } }"/>
+                    </clientSecret>
+                    <accountId
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldLabel="Account ID"
+                        id="sfmc-account-id"
+                        name="./accountId"
+                        xtype="textfield">
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            change="function(comp) {CQ.cloudservices.getEditOk().disable();}"
+                            invalid="function(cmp) { CQ.Ext.getCmp('sfmc-connect').disable(); }"
+                            valid="function(cmp){ var name = CQ.Ext.getCmp('sfmc-client-id'); var pw = CQ.Ext.getCmp('sfmc-client-secret'); var authurl = CQ.Ext.getCmp('sfmc-auth-url'); if (name.isValid() &amp;&amp; pw.isValid() &amp;&amp; cmp.isValid() &amp;&amp; authurl.isValid()) { CQ.Ext.getCmp('sfmc-connect').enable(); } }"/>
+                    </accountId>
+                    <authUrl
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        fieldLabel="SFMC OAuth URL"
+                        id="sfmc-auth-url"
+                        name="./authUrl"
+                        regexText="The provided input is not a valid URL."
+                        test="/^(https?://)(([da-z.-]+).([a-z.]{2,6})|localhost|\u0008(?:d{1,3}.){3}d{1,3}\u0008)(:[0-9]{1,5})?([/w .-]*)*/?$/"
+                        xtype="textfield">
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            invalid="function(cmp) { CQ.Ext.getCmp('sfmc-connect').disable(); }"
+                            select="function(comp) {CQ.cloudservices.getEditOk().disable();}"
+                            valid="function(cmp){ var name = CQ.Ext.getCmp('sfmc-client-id'); var pw = CQ.Ext.getCmp('sfmc-client-secret'); var acc = CQ.Ext.getCmp('sfmc-account-id'); if (name.isValid() &amp;&amp; pw.isValid() &amp;&amp; acc.isValid() &amp;&amp; cmp.isValid()) { CQ.Ext.getCmp('sfmc-connect').enable(); } }"/>
+                    </authUrl>
+                    <btnPanel
+                        jcr:primaryType="cq:Widget"
+                        border="{Boolean}false"
+                        xtype="panel">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <connectbutton
+                                jcr:primaryType="cq:Widget"
+                                disabled="true"
+                                id="sfmc-connect"
+                                localName="connectButton"
+                                style="float:right;"
+                                text="Connect to SFMC"
+                                xtype="button">
+                                <listeners
+                                    jcr:primaryType="nt:unstructured"
+                                    afterrender="function(comp) {var dialog = this.findParentByType('dialog'); dialog.on('loadcontent', function(dlg){ var clientid = dialog.find('name', './clientid'); if(clientid[0].getValue() != '') { comp.setText(CQ.I18n.getMessage('Re-Connect to SFMC'));} });  }"
+                                    click="function(comp, evt) {var dialog = this.findParentByType('dialog'); CQ.EmailService.doConnect(dialog); }"/>
+                            </connectbutton>
+                        </items>
+                    </btnPanel>
+                    <emailRoot
+                            jcr:primaryType="cq:Widget"
+                            allowBlank="{Boolean}false"
+                            fieldLabel="Campaigns root folder"
+                            fieldDescription="AEM folder to be synced with SFMC"
+                            id="sfmc-email-root"
+                            name="./emailRoot"
+                            rootPath="/content"
+                            xtype="pathfield">
+                    </emailRoot>
+                    <displayButton
+		                    jcr:primaryType="cq:Widget"
+		                    fieldLabel="Show Publish to SFMC button"
+		                    inputValue="true"
+		                    name="./displaySFMC"
+		                    type="checkbox"
+		                    xtype="selection"/>
+                    <granttype
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="client_credentials"
+                        name="./grantType"
+                        xtype="hidden"/>
+                </items>
+            </general>
+            <links
+                jcr:primaryType="nt:unstructured"
+                title="Externalizer Configurations"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <linkPanel
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Links"
+                        hideLabel="{Boolean}false"
+                        name="./links"
+                        orderable="{Boolean}false"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="cq:Widget"
+                            xtype="multifieldpanel">
+                            <items jcr:primaryType="cq:WidgetCollection">
+                                <path
+                                    jcr:primaryType="cq:Widget"
+                                    allowBlank="{Boolean}false"
+                                    fieldLabel="Content/Image path"
+                                    key="path"
+                                    rootPath="/content"
+                                    width="{Long}350"
+                                    xtype="pathfield"/>
+                                <domain
+                                    jcr:primaryType="cq:Widget"
+                                    allowBlank="{Boolean}false"
+                                    fieldLabel="Domain"
+                                    key="domain"
+                                    width="{Long}350"
+                                    xtype="textfield"/>
+                            </items>
+                        </fieldConfig>
+                    </linkPanel>
+                </items>
+            </links>
+        </items>
+    </items>
+</jcr:root>

@@ -1,0 +1,860 @@
+{
+  "assetTypes": [
+    {
+      "id": 16,
+      "name": "ai"
+    },
+    {
+      "id": 17,
+      "name": "psd"
+    },
+    {
+      "id": 18,
+      "name": "ppd"
+    },
+    {
+      "id": 19,
+      "name": "esp"
+    },
+    {
+      "id": 20,
+      "name": "gip"
+    },
+    {
+      "id": 21,
+      "name": "jpe"
+    },
+    {
+      "id": 22,
+      "name": "jpeg"
+    },
+    {
+      "id": 23,
+      "name": "jpg"
+    },
+    {
+      "id": 24,
+      "name": "jp2"
+    },
+    {
+      "id": 25,
+      "name": "jpx"
+    },
+    {
+      "id": 26,
+      "name": "pict"
+    },
+    {
+      "id": 27,
+      "name": "pct"
+    },
+    {
+      "id": 28,
+      "name": "png"
+    },
+    {
+      "id": 29,
+      "name": "tif"
+    },
+    {
+      "id": 30,
+      "name": "tiff"
+    },
+    {
+      "id": 31,
+      "name": "tga"
+    },
+    {
+      "id": 32,
+      "name": "bmp"
+    },
+    {
+      "id": 33,
+      "name": "wmf"
+    },
+    {
+      "id": 34,
+      "name": "vsd"
+    },
+    {
+      "id": 35,
+      "name": "pnm"
+    },
+    {
+      "id": 36,
+      "name": "pgm"
+    },
+    {
+      "id": 37,
+      "name": "pbm"
+    },
+    {
+      "id": 38,
+      "name": "ppm"
+    },
+    {
+      "id": 39,
+      "name": "svg"
+    },
+    {
+      "id": 40,
+      "name": "3fr"
+    },
+    {
+      "id": 41,
+      "name": "ari"
+    },
+    {
+      "id": 42,
+      "name": "arw"
+    },
+    {
+      "id": 43,
+      "name": "bay"
+    },
+    {
+      "id": 44,
+      "name": "cap"
+    },
+    {
+      "id": 45,
+      "name": "crw"
+    },
+    {
+      "id": 46,
+      "name": "cr2"
+    },
+    {
+      "id": 47,
+      "name": "dcr"
+    },
+    {
+      "id": 48,
+      "name": "dcs"
+    },
+    {
+      "id": 49,
+      "name": "dng"
+    },
+    {
+      "id": 50,
+      "name": "drf"
+    },
+    {
+      "id": 51,
+      "name": "eip"
+    },
+    {
+      "id": 52,
+      "name": "erf"
+    },
+    {
+      "id": 53,
+      "name": "fff"
+    },
+    {
+      "id": 54,
+      "name": "iiq"
+    },
+    {
+      "id": 55,
+      "name": "k25"
+    },
+    {
+      "id": 56,
+      "name": "kdc"
+    },
+    {
+      "id": 57,
+      "name": "mef"
+    },
+    {
+      "id": 58,
+      "name": "mos"
+    },
+    {
+      "id": 59,
+      "name": "mrw"
+    },
+    {
+      "id": 60,
+      "name": "nef"
+    },
+    {
+      "id": 61,
+      "name": "nrw"
+    },
+    {
+      "id": 62,
+      "name": "orf"
+    },
+    {
+      "id": 63,
+      "name": "pef"
+    },
+    {
+      "id": 64,
+      "name": "ptx"
+    },
+    {
+      "id": 65,
+      "name": "pnx"
+    },
+    {
+      "id": 66,
+      "name": "raf"
+    },
+    {
+      "id": 68,
+      "name": "rw2"
+    },
+    {
+      "id": 69,
+      "name": "rw1"
+    },
+    {
+      "id": 70,
+      "name": "rwz"
+    },
+    {
+      "id": 71,
+      "name": "srf"
+    },
+    {
+      "id": 72,
+      "name": "sr2"
+    },
+    {
+      "id": 73,
+      "name": "srw"
+    },
+    {
+      "id": 74,
+      "name": "x3f"
+    },
+    {
+      "id": 75,
+      "name": "3gp"
+    },
+    {
+      "id": 76,
+      "name": "3gpp"
+    },
+    {
+      "id": 77,
+      "name": "3g2"
+    },
+    {
+      "id": 78,
+      "name": "3gp2"
+    },
+    {
+      "id": 79,
+      "name": "asf"
+    },
+    {
+      "id": 80,
+      "name": "avi"
+    },
+    {
+      "id": 81,
+      "name": "m2ts"
+    },
+    {
+      "id": 82,
+      "name": "mts"
+    },
+    {
+      "id": 83,
+      "name": "dif"
+    },
+    {
+      "id": 84,
+      "name": "dv"
+    },
+    {
+      "id": 85,
+      "name": "mkv"
+    },
+    {
+      "id": 86,
+      "name": "mpg"
+    },
+    {
+      "id": 87,
+      "name": "f4v"
+    },
+    {
+      "id": 88,
+      "name": "flv"
+    },
+    {
+      "id": 89,
+      "name": "mjpg"
+    },
+    {
+      "id": 90,
+      "name": "mjpeg"
+    },
+    {
+      "id": 91,
+      "name": "mxf"
+    },
+    {
+      "id": 92,
+      "name": "mpeg"
+    },
+    {
+      "id": 93,
+      "name": "mp4"
+    },
+    {
+      "id": 94,
+      "name": "m4v"
+    },
+    {
+      "id": 95,
+      "name": "mp4v"
+    },
+    {
+      "id": 96,
+      "name": "mov"
+    },
+    {
+      "id": 97,
+      "name": "swf"
+    },
+    {
+      "id": 98,
+      "name": "wmv"
+    },
+    {
+      "id": 99,
+      "name": "rm"
+    },
+    {
+      "id": 100,
+      "name": "org"
+    },
+    {
+      "id": 101,
+      "name": "indd"
+    },
+    {
+      "id": 102,
+      "name": "indt"
+    },
+    {
+      "id": 103,
+      "name": "incx"
+    },
+    {
+      "id": 104,
+      "name": "wwcx"
+    },
+    {
+      "id": 105,
+      "name": "doc"
+    },
+    {
+      "id": 106,
+      "name": "docx"
+    },
+    {
+      "id": 107,
+      "name": "dot"
+    },
+    {
+      "id": 108,
+      "name": "dotx"
+    },
+    {
+      "id": 109,
+      "name": "mdb"
+    },
+    {
+      "id": 110,
+      "name": "mpp"
+    },
+    {
+      "id": 111,
+      "name": "ics"
+    },
+    {
+      "id": 111,
+      "name": "ics"
+    },
+    {
+      "id": 112,
+      "name": "xls"
+    },
+    {
+      "id": 113,
+      "name": "xlsx"
+    },
+    {
+      "id": 114,
+      "name": "xlk"
+    },
+    {
+      "id": 115,
+      "name": "xlsm"
+    },
+    {
+      "id": 116,
+      "name": "xlt"
+    },
+    {
+      "id": 117,
+      "name": "xltm"
+    },
+    {
+      "id": 118,
+      "name": "cvs"
+    },
+    {
+      "id": 119,
+      "name": "tsv"
+    },
+    {
+      "id": 120,
+      "name": "tab"
+    },
+    {
+      "id": 121,
+      "name": "pps"
+    },
+    {
+      "id": 122,
+      "name": "ppsx"
+    },
+    {
+      "id": 123,
+      "name": "ppt"
+    },
+    {
+      "id": 124,
+      "name": "pptx"
+    },
+    {
+      "id": 125,
+      "name": "pot"
+    },
+    {
+      "id": 126,
+      "name": "thmx"
+    },
+    {
+      "id": 127,
+      "name": "pdf"
+    },
+    {
+      "id": 128,
+      "name": "ps"
+    },
+    {
+      "id": 129,
+      "name": "qxd"
+    },
+    {
+      "id": 130,
+      "name": "rtf"
+    },
+    {
+      "id": 131,
+      "name": "sxc"
+    },
+    {
+      "id": 132,
+      "name": "sxi"
+    },
+    {
+      "id": 133,
+      "name": "sxw"
+    },
+    {
+      "id": 134,
+      "name": "odt"
+    },
+    {
+      "id": 135,
+      "name": "ods"
+    },
+    {
+      "id": 136,
+      "name": "ots"
+    },
+    {
+      "id": 137,
+      "name": "odp"
+    },
+    {
+      "id": 138,
+      "name": "otp"
+    },
+    {
+      "id": 139,
+      "name": "epub"
+    },
+    {
+      "id": 140,
+      "name": "div"
+    },
+    {
+      "id": 141,
+      "name": "key"
+    },
+    {
+      "id": 142,
+      "name": "keytone"
+    },
+    {
+      "id": 143,
+      "name": "pez"
+    },
+    {
+      "id": 144,
+      "name": "aac"
+    },
+    {
+      "id": 145,
+      "name": "m4a"
+    },
+    {
+      "id": 146,
+      "name": "au"
+    },
+    {
+      "id": 146,
+      "name": "au"
+    },
+    {
+      "id": 147,
+      "name": "aif"
+    },
+    {
+      "id": 148,
+      "name": "aiff"
+    },
+    {
+      "id": 149,
+      "name": "aifc"
+    },
+    {
+      "id": 150,
+      "name": "mp3"
+    },
+    {
+      "id": 151,
+      "name": "wav"
+    },
+    {
+      "id": 152,
+      "name": "wma"
+    },
+    {
+      "id": 153,
+      "name": "midi"
+    },
+    {
+      "id": 154,
+      "name": "oga"
+    },
+    {
+      "id": 155,
+      "name": "ogg"
+    },
+    {
+      "id": 156,
+      "name": "ra"
+    },
+    {
+      "id": 157,
+      "name": "vox"
+    },
+    {
+      "id": 158,
+      "name": "voc"
+    },
+    {
+      "id": 159,
+      "name": "7z"
+    },
+    {
+      "id": 160,
+      "name": "arj"
+    },
+    {
+      "id": 161,
+      "name": "b2z"
+    },
+    {
+      "id": 162,
+      "name": "cab"
+    },
+    {
+      "id": 163,
+      "name": "gz"
+    },
+    {
+      "id": 164,
+      "name": "gzip"
+    },
+    {
+      "id": 165,
+      "name": "iso"
+    },
+    {
+      "id": 166,
+      "name": "lha"
+    },
+    {
+      "id": 167,
+      "name": "sit"
+    },
+    {
+      "id": 168,
+      "name": "tgz"
+    },
+    {
+      "id": 169,
+      "name": "jar"
+    },
+    {
+      "id": 170,
+      "name": "rar"
+    },
+    {
+      "id": 171,
+      "name": "tar"
+    },
+    {
+      "id": 172,
+      "name": "zip"
+    },
+    {
+      "id": 173,
+      "name": "gpg"
+    },
+    {
+      "id": 174,
+      "name": "htm"
+    },
+    {
+      "id": 175,
+      "name": "html"
+    },
+    {
+      "id": 176,
+      "name": "xhtml"
+    },
+    {
+      "id": 177,
+      "name": "xht"
+    },
+    {
+      "id": 178,
+      "name": "css"
+    },
+    {
+      "id": 179,
+      "name": "less"
+    },
+    {
+      "id": 180,
+      "name": "sass"
+    },
+    {
+      "id": 181,
+      "name": "js"
+    },
+    {
+      "id": 182,
+      "name": "json"
+    },
+    {
+      "id": 183,
+      "name": "atom"
+    },
+    {
+      "id": 184,
+      "name": "rss"
+    },
+    {
+      "id": 185,
+      "name": "xml"
+    },
+    {
+      "id": 186,
+      "name": "xsl"
+    },
+    {
+      "id": 187,
+      "name": "xslt"
+    },
+    {
+      "id": 188,
+      "name": "md"
+    },
+    {
+      "id": 189,
+      "name": "markdown"
+    },
+    {
+      "id": 190,
+      "name": "as"
+    },
+    {
+      "id": 191,
+      "name": "fla"
+    },
+    {
+      "id": 192,
+      "name": "eml"
+    },
+    {
+      "id": 193,
+      "name": "text"
+    },
+    {
+      "id": 194,
+      "name": "txt"
+    },
+    {
+      "id": 195,
+      "name": "freefromblock"
+    },
+    {
+      "id": 196,
+      "name": "textblock"
+    },
+    {
+      "id": 197,
+      "name": "htmlblock"
+    },
+    {
+      "id": 198,
+      "name": "textpiusimageblock"
+    },
+    {
+      "id": 199,
+      "name": "imageblock"
+    },
+    {
+      "id": 200,
+      "name": "abtestblock"
+    },
+    {
+      "id": 201,
+      "name": "dynamicblock"
+    },
+    {
+      "id": 202,
+      "name": "stylingblock"
+    },
+    {
+      "id": 203,
+      "name": "einsteincontentblock"
+    },
+    {
+      "id": 205,
+      "name": "webpage"
+    },
+    {
+      "id": 206,
+      "name": "webtemplate"
+    },
+    {
+      "id": 207,
+      "name": "templatebasedmail"
+    },
+    {
+      "id": 208,
+      "name": "htmlemail"
+    },
+    {
+      "id": 209,
+      "name": "textonlyemail"
+    },
+    {
+      "id": 210,
+      "name": "socialshareblock"
+    },
+    {
+      "id": 211,
+      "name": "socialfollowblock"
+    },
+    {
+      "id": 212,
+      "name": "buttonblock"
+    },
+    {
+      "id": 213,
+      "name": "layoutblock"
+    },
+    {
+      "id": 214,
+      "name": "defaulttemplate"
+    },
+    {
+      "id": 215,
+      "name": "smartcaptureblock"
+    },
+    {
+      "id": 216,
+      "name": "smartcaptureformfieldblock"
+    },
+    {
+      "id": 217,
+      "name": "smartcapturesubmitoptionsblock"
+    },
+    {
+      "id": 218,
+      "name": "slotpropertiesblock"
+    },
+    {
+      "id": 219,
+      "name": "externalcontentblock"
+    },
+    {
+      "id": 220,
+      "name": "codesnippetblock"
+    },
+    {
+      "id": 221,
+      "name": "rssfeedblock"
+    },
+    {
+      "id": 222,
+      "name": "formstylingblock"
+    },
+    {
+      "id": 223,
+      "name": "referenceblock"
+    },
+    {
+      "id": 224,
+      "name": "imagecarouselblock"
+    },
+    {
+      "id": 225,
+      "name": "customblock"
+    },
+    {
+      "id": 226,
+      "name": "liveimageblock"
+    },
+    {
+      "id": 227,
+      "name": "livesettingblock"
+    },
+    {
+      "id": 228,
+      "name": "contentmap"
+    },
+    {
+      "id": 230,
+      "name": "jsonmessage"
+    }
+  ]
+}

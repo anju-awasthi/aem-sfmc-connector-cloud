@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/aem-sfmc-connector" mode="merge"/>
+    <filter root="/content/aem-sfmc-connector" mode="merge"/>
+    <filter root="/content/dam/aem-sfmc-connector/asset.jpg" mode="merge"/>
+    <filter root="/content/experience-fragments/aem-sfmc-connector" mode="merge"/>
+	<filter root="/conf/aem-sfmc-connector"/>
+    <filter root="/conf/global/settings/workflow/models/approve-for-sfmc-sync" mode="merge"/>
+    <filter root="/etc/cloudservices/sfmc" mode="merge"/>
+
+
+    <filter root="/etc/acs-commons/lists/aem-sfmc-connector" mode="merge"/>
+    <filter root="/etc/notification/email/aem-sfmc-connector" mode="merge"/>
+    <filter root="/etc/notification/email" mode="update"/>
+
+
+    <filter root="/var/workflow/models/approve-for-sfmc-sync" mode="merge"/>
+    <filter root="/content/aem-sfmc-connector" mode="merge"/>
+    <filter root="/content/dam/aem-sfmc-connector" mode="merge"/>
+    <filter root="/content/experience-fragments/aem-sfmc-connector" mode="merge"/>
+</workspaceFilter>
